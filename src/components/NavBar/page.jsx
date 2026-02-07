@@ -59,13 +59,12 @@ export default function NavBar() {
 
   return (
     <>
-      {/* TOP NAV BAR */}
       <nav
         className="
     fixed top-0 left-0 w-full z-[900] bg-transparent
   "
       >
-        <div className="w-[95%] max-w-[1090px] mx-auto py-5">
+        <div className="w-[95%] max-w-[1440px] mx-auto py-5">
           <div className="flex items-center justify-between">
             <a
               href="#"
@@ -73,7 +72,6 @@ export default function NavBar() {
               className="flex items-center justify-center w-[50px] h-[50px] rounded-full bg-transparent text-[#2c2c2c] text-[25px] font-bold"
             ></a>
 
-            {/* Burger */}
             <button
               type="button"
               title="Open Menu"
@@ -110,7 +108,6 @@ export default function NavBar() {
         </div>
       </nav>
 
-      {/* OVERLAY */}
       <div
         className={[
           "fixed inset-0 z-[999]",
@@ -119,7 +116,6 @@ export default function NavBar() {
         ].join(" ")}
         onClick={() => setOpen(false)}
       >
-        {/* layers (não roubam hover) */}
         <div
           className={[
             "absolute inset-0 bg-[#2c2c2c] pointer-events-none",
@@ -137,7 +133,6 @@ export default function NavBar() {
           ].join(" ")}
         />
 
-        {/* PANEL */}
         <div
           onClick={(e) => e.stopPropagation()}
           className={[
@@ -147,9 +142,8 @@ export default function NavBar() {
             "transition-transform duration-300 ease-out delay-[140ms]",
           ].join(" ")}
         >
-          <div className="w-[95%] max-w-[1090px] mx-auto h-full py-5">
+          <div className="w-[95%] max-w-[1440px] mx-auto h-full py-5">
             <div className="flex flex-row-reverse justify-between items-start h-full">
-              {/* CLOSE */}
               <button
                 type="button"
                 title="Close Menu"
@@ -182,7 +176,6 @@ export default function NavBar() {
                 />
               </button>
 
-              {/* LIST */}
               <ul
                 className={[
                   "h-full p-0 m-0 list-none",
@@ -203,18 +196,7 @@ export default function NavBar() {
                       l.delay,
                     ].join(" ")}
                   >
-                    {/* sweep preto (idêntico) */}
-                    <span
-                      className="
-                        absolute inset-0 z-10
-                        origin-left scale-x-0
-                        bg-[#2c2c2c]
-                        pointer-events-none
-                        group-hover:animate-sweep
-                      "
-                    />
-
-                    {/* número grande só no hover */}
+                    <span className=" absolute inset-0 z-10 origin-left scale-x-0 bg-[#2c2c2c] pointer-events-none group-hover:animate-sweep" />
                     <span
                       className={[
                         "absolute -top-5 -left-5 -z-10 select-none pointer-events-none",
@@ -233,15 +215,7 @@ export default function NavBar() {
                       title={l.title}
                       className="relative z-20 flex flex-col items-start text-[#2c2c2c]"
                     >
-                      <span
-                        className="
-                          text-[3.4rem] font-bold tracking-[2px]
-                          transition-transform
-                          duration-200 ease-out
-                          group-hover:translate-x-[10px]
-                          delay-0 group-hover:delay-[450ms]
-                        "
-                      >
+                      <span className="text-[3.4rem] font-bold tracking-[2px]transition-transformduration-200 ease-outgroup-hover:translate-x-[10px]delay-0 group-hover:delay-[450ms]">
                         {l.title}
                       </span>
                       <span className="mt-[5px] italic">{l.descr}</span>

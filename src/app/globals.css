@@ -6,6 +6,12 @@
   --color-text: #5D5D5D;
   --color-text-secondary: #C2B3A3;
   --color-bege: #D8D1C9;
+
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-2xl: 1536px;
 }
 
 html, body {
@@ -17,4 +23,3 @@ ul {
   margin: 0;
   padding: 0;
 }
-
