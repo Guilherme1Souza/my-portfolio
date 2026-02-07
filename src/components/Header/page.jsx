@@ -76,8 +76,8 @@ export default function Header() {
                 </h1>
 
                 <p className="mt-3 sm:mt-4 text-base sm:text-lg md:text-xl lg:text-2xl text-text leading-relaxed">
-                  Desenvolvedor Full-Stack apaixonado por criar soluções
-                  digitais inovadoras.
+                  Desenvolvedor Front-end apaixonado por criar soluções digitais
+                  inovadoras.
                 </p>
               </div>
 
