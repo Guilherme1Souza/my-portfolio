@@ -48,16 +48,17 @@ export default function Header() {
   };
 
   const BurstIcon = burstIndex !== null ? ICONS[burstIndex]?.Icon : null;
-
   const STEP = 60;
 
   return (
     <MainLayout>
       <header className="w-full min-h-screen">
         <div className="w-full max-w-[1440px] mx-auto min-h-screen pt-6 sm:pt-10 md:pt-14">
+          {/* Mobile: imagem em cima | Desktop: texto à esquerda, imagem à direita */}
           <div className="grid min-h-[calc(100vh-3.5rem)] grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10 md:gap-14 items-center">
+            {/* Imagem mobile */}
             <div className="md:hidden w-full flex justify-center order-1">
-              <div className="relative w-[min(520px,100%)] aspect-[4/3]">
+              <div className="relative mt-1.5 w-[min(520px,100%)] aspect-[4/3]">
                 <Image
                   src={bgHeader}
                   alt="Imagem de perfil de Guilherme"
@@ -69,13 +70,14 @@ export default function Header() {
               </div>
             </div>
 
-            <div className="w-full flex flex-col justify-center gap-4 sm:gap-6order-2 md:order-1items-center text-centermd:items-start md:text-left">
-              <div className="w-full max-w-[36rem] md:max-w-2xl">
-                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-title leading-tight tracking-tight">
+            {/* Texto */}
+            <div className="w-full flex flex-col justify-center gap-4 sm:gap-6 order-2 md:order-1 items-center text-center md:items-start md:text-left">
+              <div className="w-full max-w-xl md:max-w-2xl">
+                <h1 className="text-5xl mb-4 sm:text-4xl md:text-5xl lg:text-6xl font-bold text-title leading-tight tracking-tight">
                   Olá, eu sou o Guilherme
                 </h1>
 
-                <p className="mt-3 sm:mt-4 text-base sm:text-lg md:text-xl lg:text-2xl text-text leading-relaxed">
+                <p className="mt-3 sm:mt-4 text-2xl sm:text-lg md:text-xl lg:text-2xl text-text leading-relaxed">
                   Desenvolvedor Front-end apaixonado por criar soluções digitais
                   inovadoras.
                 </p>
@@ -142,6 +144,7 @@ export default function Header() {
               </div>
             </div>
 
+            {/* Imagem desktop */}
             <div className="relative hidden md:flex items-end justify-end order-2 h-full">
               <div className="relative w-[360px] h-[480px] md:w-[420px] md:h-[540px] lg:w-[480px] lg:h-[600px] xl:w-[540px] xl:h-[680px] 2xl:w-[600px] 2xl:h-[760px]">
                 <Image
