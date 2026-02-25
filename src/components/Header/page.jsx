@@ -28,7 +28,6 @@ export default function Header() {
   const track = (key) => {
     const body = JSON.stringify({ target: key });
 
-    // melhor pra não atrapalhar abrir nova aba
     if (navigator.sendBeacon) {
       navigator.sendBeacon("/api/click", body);
       return;
@@ -71,30 +70,43 @@ export default function Header() {
     <MainLayout>
       <header className="w-full min-h-screen">
         <div className="w-full max-w-[1440px] mx-auto min-h-screen pt-6 sm:pt-10 md:pt-14">
-          {/* Mobile: imagem em cima | Desktop: texto à esquerda, imagem à direita */}
-          <div className="grid min-h-[calc(100vh-3.5rem)] grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10 md:gap-14 items-center">
-            {/* Imagem mobile */}
-            <div className="md:hidden w-full flex justify-center order-1">
-              <div className="relative mt-1.5 w-[min(520px,100%)] aspect-[4/3]">
+          <div className="grid mt-22 min-h-[calc(100vh-2.5rem)] grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10 md:gap-14 items-center ">
+            <div className="order-1 md:order-2 w-full flex justify-center md:justify-end">
+              <div
+                className={[
+                  "relative w-[min(520px,100%)] aspect-[4/3]", 
+                  "md:w-[420px] md:aspect-auto md:h-[540px]",
+                  "lg:w-[480px] lg:h-[320px]", 
+                  "xl:w-[540px] xl:h-[320px]", 
+                  "2xl:w-[400px] 2xl:h-[400px]", 
+                ].join(" ")}
+              >
                 <Image
                   src={bgHeader}
                   alt="Imagem de perfil de Guilherme"
                   fill
                   priority
                   className="object-contain object-bottom"
-                  sizes="(max-width: 767px) 520px, 0px"
+                  sizes="
+                    (min-width: 1536px) 400px,
+                    (min-width: 1280px) 540px,
+                    (min-width: 1024px) 480px,
+                    (min-width: 768px) 420px,
+                    (min-width: 640px) 520px,
+                    100vw
+                  "
                 />
               </div>
             </div>
 
-            {/* Texto */}
-            <div className="w-full flex flex-col justify-center gap-4 sm:gap-6 order-2 md:order-1 items-center text-center md:items-start md:text-left">
+          
+            <div className="order-2 md:order-1 w-full flex flex-col justify-center gap-4 sm:gap-6 items-center text-center md:items-start md:text-left">
               <div className="w-full max-w-xl md:max-w-2xl">
-                <h1 className="text-5xl mb-4 sm:text-4xl md:text-5xl lg:text-6xl font-bold text-title leading-tight tracking-tight">
+                <h1 className="text-4xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-title leading-tight tracking-tight">
                   Olá, eu sou o Guilherme
                 </h1>
 
-                <p className="mt-3 sm:mt-4 text-2xl sm:text-lg md:text-xl lg:text-2xl text-text leading-relaxed">
+                <p className="mt-3 sm:mt-4 text-lg md:text-xl lg:text-2xl text-text leading-relaxed">
                   Desenvolvedor Front-end apaixonado por criar soluções digitais
                   inovadoras.
                 </p>
@@ -102,7 +114,7 @@ export default function Header() {
 
               <div className="w-full flex justify-center md:justify-start">
                 <div className="relative bg-transparent rounded-full p-2 flex flex-row gap-3">
-                  {BurstIcon && (
+                  {BurstIcon && burstIndex !== null && (
                     <span
                       className={[
                         "absolute pointer-events-none z-0",
@@ -122,17 +134,14 @@ export default function Header() {
 
                   {ICONS.map(({ key, Icon, href }, idx) => {
                     const isActive = idx === active;
+                    const isMail = href.startsWith("mailto:");
 
                     return (
                       <a
                         key={key}
                         href={href}
-                        target={
-                          href.startsWith("mailto:") ? undefined : "_blank"
-                        }
-                        rel={
-                          href.startsWith("mailto:") ? undefined : "noreferrer"
-                        }
+                        target={isMail ? undefined : "_blank"}
+                        rel={isMail ? undefined : "noreferrer"}
                         onClick={() => {
                           onPick(idx);
                           track(key);
@@ -141,7 +150,9 @@ export default function Header() {
                           "group w-12 h-12 rounded-full z-10 relative cursor-pointer",
                           "flex items-center justify-center",
                           "transition-all duration-300 ease-in-out",
-                          isActive ? "text-[#568259]/80 scale-105" : "text-[#568259]/40",
+                          isActive
+                            ? "text-[#568259]/80 scale-105"
+                            : "text-[#568259]/40",
                           "hover:scale-110 hover:-translate-y-[2px]",
                           "active:scale-95",
                         ].join(" ")}
@@ -156,25 +167,9 @@ export default function Header() {
 
                   <div
                     className="w-12 h-12 rounded-full bg-transparent border-2 border-[#568259]/40 absolute left-2 top-2 transition-transform duration-500 ease-[cubic-bezier(0.68,-0.55,0.27,1.55)] z-0"
-                    style={{
-                      transform: `translateX(${active * STEP}px)`,
-                    }}
+                    style={{ transform: `translateX(${active * STEP}px)` }}
                   />
                 </div>
-              </div>
-            </div>
-
-            {/* Imagem desktop */}
-            <div className="relative hidden md:flex items-end justify-end order-2 h-full">
-              <div className="relative w-[360px] h-[480px] md:w-[420px] md:h-[540px] lg:w-[480px] lg:h-[600px] xl:w-[540px] xl:h-[680px] 2xl:w-[600px] 2xl:h-[760px]">
-                <Image
-                  src={bgHeader}
-                  alt="Imagem de perfil de Guilherme"
-                  fill
-                  priority
-                  className="object-contain object-bottom"
-                  sizes="(min-width: 1536px) 600px, (min-width: 1280px) 540px, (min-width: 1024px) 480px, 420px"
-                />
               </div>
             </div>
           </div>

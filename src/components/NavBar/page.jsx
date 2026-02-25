@@ -8,13 +8,13 @@ const LINKS = [
     href: "#",
     title: "Home",
     descr: "Ir para a página inicial",
-    accent: "text-[#119da4]/20",
+    accent: "text-[#568259]/20",
   },
   {
     href: "#",
     title: "Sobre",
     descr: "Quem é o Guilherme?",
-    accent: "text-[#ed474a]/20",
+    accent: "text-[#568259]/20",
   },
   {
     href: "#",
@@ -26,13 +26,13 @@ const LINKS = [
     href: "#",
     title: "Testemunhas",
     descr: "O que meus clientes dizem",
-    accent: "text-[#422040]/20",
+    accent: "text-[#568259]/20",
   },
   {
     href: "#",
     title: "Contatos",
     descr: "Prestamos serviços para todo o Brasil",
-    accent: "text-[#02a9ea]/20",
+    accent: "text-[#568259]/20",
   },
 ];
 
@@ -61,7 +61,7 @@ export default function NavBar() {
     <>
       <nav
         className="
-    fixed top-0 left-0 w-full z-[900] bg-cinza
+    fixed top-0 left-0 w-full z-[900] bg-verde
   "
       >
         <div className="w-[95%] max-w-[1440px] mx-auto py-5">
@@ -69,7 +69,7 @@ export default function NavBar() {
             <a
               href="#"
               title="Our Nice Logo"
-              className="flex items-center justify-center w-[50px] h-[50px] rounded-full bg-cinza text-[#2c2c2c] text-[25px] font-bold"
+              className="flex items-center justify-center w-[50px] h-[50px] rounded-full bg-verde text-[#2c2c2c] text-[25px] font-bold"
             ></a>
 
             <button
