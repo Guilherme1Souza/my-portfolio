@@ -37,7 +37,7 @@ export default function About() {
                   Principais tecnologias
                 </h2>
 
-                <h3 className="text-sm font-medium text-white/70 mb-3">
+                <h3 className="text-sm font-semibold text-white/90 mb-1">
                   Front-end
                 </h3>
 
