@@ -2,11 +2,10 @@
 
 import React, { forwardRef } from "react";
 import clsx from "clsx";
-import Loading from "@/components/Loading";
 
 const variantStyles = {
   primary:
-    "bg-[#3C5B3E] text-white hover:bg-[#2f4731] disabled:opacity-60 disabled:pointer-events-none",
+    "bg-[#2f4731] text-white cursor-pointer hover:bg-gray-300/20 hover:text-title disabled:opacity-60 disabled:pointer-events-none",
 
   secondary:
     "bg-gray-200 text-gray-800 hover:bg-gray-300 disabled:opacity-60 disabled:pointer-events-none",
@@ -25,9 +24,9 @@ const variantStyles = {
 };
 
 const sizeStyles = {
-  sm: "px-3 py-1.5 text-xs rounded-md",
-  md: "px-4 py-2 text-sm rounded-lg",
-  lg: "px-6 py-3 text-base rounded-xl",
+  sm: "px-3 py-1.5 text-xs rounded-full",
+  md: "px-8 py-2 text-sm rounded-full",
+  lg: "px-9 py-3 text-base rounded-full",
 };
 
 const Button = forwardRef(function Button(
@@ -58,10 +57,6 @@ const Button = forwardRef(function Button(
       {...props}
     >
       {children}
-
-      {loading && (
-        <Loading className="ml-2 size-4 text-current" />
-      )}
     </button>
   );
 });

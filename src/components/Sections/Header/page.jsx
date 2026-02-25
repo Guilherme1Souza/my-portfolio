@@ -68,6 +68,7 @@ export default function Header() {
 
   return (
     <MainLayout>
+      <section id="home">
       <header className="w-full min-h-screen">
         <div className="w-full max-w-[1440px] mx-auto min-h-screen pt-6 sm:pt-10 md:pt-14">
           <div className="grid mt-22 min-h-[calc(100vh-2.5rem)] grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10 md:gap-14 items-center ">
@@ -100,13 +101,13 @@ export default function Header() {
             </div>
 
           
-            <div className="order-2 md:order-1 w-full flex flex-col justify-center gap-4 sm:gap-6 items-center text-center md:items-start md:text-left">
+            <div className="order-2 md:order-1 w-full flex flex-col justify-center gap-4 sm:gap-6 items-center text-start md:items-start md:text-left">
               <div className="w-full max-w-xl md:max-w-2xl">
-                <h1 className="text-4xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-title leading-tight tracking-tight">
+                <h1 className="text- sm:text-4xl md:text-5xl lg:text-6xl font-bold text-title leading-tight tracking-tight">
                   Olá, eu sou o Guilherme
                 </h1>
 
-                <p className="mt-3 sm:mt-4 text-lg md:text-xl lg:text-2xl text-text leading-relaxed">
+                <p className="mt-3 sm:mt-4 text-base md:text-xl lg:text-lg text-text leading-relaxed">
                 Desenvolvedor Front-end Júnior com experiência em React, Next.js, Electron e Gatsby, atuando em aplicações web, cloud e desktop. Foco em performance, SEO e UX/UI, integração com APIs REST, implementação de BFF, CI/CD e otimização de estado assíncrono com TanStack Query.
                 </p>
               </div>
@@ -174,6 +175,7 @@ export default function Header() {
           </div>
         </div>
       </header>
+      </section>
     </MainLayout>
   );
 }

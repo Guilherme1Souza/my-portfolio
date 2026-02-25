@@ -5,13 +5,13 @@ import { ArrowDownTrayIcon } from "@heroicons/react/24/outline";
 
 const LINKS = [
   {
-    href: "#",
+    href: "#home",
     title: "Home",
     descr: "Ir para a página inicial",
     accent: "text-[#568259]/20",
   },
   {
-    href: "#",
+    href: "#about",
     title: "Sobre",
     descr: "Quem é o Guilherme?",
     accent: "text-[#568259]/20",
@@ -56,6 +56,40 @@ export default function NavBar() {
       })),
     [],
   );
+
+  const handleNav = (e, href) => {
+  // se for "#", só fecha
+  if (!href || href === "#") {
+    e.preventDefault();
+    setOpen(false);
+    return;
+  }
+
+  // âncora tipo "#about"
+  if (href.startsWith("#")) {
+    e.preventDefault();
+    const id = href.slice(1);
+
+    setOpen(false);
+
+    // espera o menu fechar (mesmo frame), depois rola
+    requestAnimationFrame(() => {
+      const el = document.getElementById(id);
+      if (!el) return;
+
+      // se você tem navbar fixa, use scroll-mt-* na section (recomendado)
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
+
+      // atualiza a URL (opcional, mas legal)
+      history.replaceState(null, "", href);
+    });
+
+    return;
+  }
+
+  // link externo/normal
+  setOpen(false);
+};
 
   return (
     <>
@@ -210,16 +244,17 @@ export default function NavBar() {
                       {l.num}
                     </span>
 
-                    <a
-                      href={l.href}
-                      title={l.title}
-                      className="relative z-20 flex flex-col items-start text-[#2c2c2c]"
-                    >
-                      <span className="text-[3.4rem] font-bold tracking-[2px]transition-transformduration-200 ease-outgroup-hover:translate-x-[10px]delay-0 group-hover:delay-[450ms]">
-                        {l.title}
-                      </span>
-                      <span className="mt-[5px] italic">{l.descr}</span>
-                    </a>
+                  <a
+                    href={l.href}
+                    title={l.title}
+                    onClick={(e) => handleNav(e, l.href)}
+                    className="relative z-20 flex flex-col items-start text-[#2c2c2c]"
+                  >
+                    <span className="text-[3.4rem] font-bold tracking-[2px] transition-transform duration-200 ease-out group-hover:translate-x-[10px] delay-0 group-hover:delay-[450ms]">
+                      {l.title}
+                    </span>
+                    <span className="mt-[5px] italic">{l.descr}</span>
+                  </a>
                   </li>
                 ))}
               </ul>
