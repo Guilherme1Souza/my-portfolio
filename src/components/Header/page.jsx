@@ -107,8 +107,7 @@ export default function Header() {
                 </h1>
 
                 <p className="mt-3 sm:mt-4 text-lg md:text-xl lg:text-2xl text-text leading-relaxed">
-                  Desenvolvedor Front-end apaixonado por criar soluções digitais
-                  inovadoras.
+                Desenvolvedor Front-end Júnior com experiência em React, Next.js, Electron e Gatsby, atuando em aplicações web, cloud e desktop. Foco em performance, SEO e UX/UI, integração com APIs REST, implementação de BFF, CI/CD e otimização de estado assíncrono com TanStack Query.
                 </p>
               </div>
 
