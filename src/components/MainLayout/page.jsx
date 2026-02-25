@@ -7,7 +7,7 @@ const MainLayout = ({ children, wide = false, style }) => {
     <div
       style={style}
       className="
-        min-h-screen bg-bege overflow-x-hidden
+        min-h-screen bg-cinza overflow-x-hidden
         px-4 sm:px-6 md:px-10 lg:px-14
       "
     >

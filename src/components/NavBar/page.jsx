@@ -61,7 +61,7 @@ export default function NavBar() {
     <>
       <nav
         className="
-    fixed top-0 left-0 w-full z-[900] bg-transparent
+    fixed top-0 left-0 w-full z-[900] bg-cinza
   "
       >
         <div className="w-[95%] max-w-[1440px] mx-auto py-5">
@@ -69,7 +69,7 @@ export default function NavBar() {
             <a
               href="#"
               title="Our Nice Logo"
-              className="flex items-center justify-center w-[50px] h-[50px] rounded-full bg-transparent text-[#2c2c2c] text-[25px] font-bold"
+              className="flex items-center justify-center w-[50px] h-[50px] rounded-full bg-cinza text-[#2c2c2c] text-[25px] font-bold"
             ></a>
 
             <button
@@ -222,16 +222,6 @@ export default function NavBar() {
                     </a>
                   </li>
                 ))}
-
-                <li className="mt-10">
-                  <button
-                    type="button"
-                    className="w-full h-10 bg-[#2c2c2c] text-white rounded-xl flex items-center justify-center hover:opacity-90 transition"
-                  >
-                    <span className="text-sm font-medium">Download CV</span>
-                    <ArrowDownTrayIcon className="h-5 w-5 ml-2 text-white" />
-                  </button>
-                </li>
               </ul>
             </div>
           </div>

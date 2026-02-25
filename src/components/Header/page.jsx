@@ -25,6 +25,23 @@ export default function Header() {
   const [burstIndex, setBurstIndex] = useState(null);
   const [burstOut, setBurstOut] = useState(false);
 
+  const track = (key) => {
+    const body = JSON.stringify({ target: key });
+
+    // melhor pra não atrapalhar abrir nova aba
+    if (navigator.sendBeacon) {
+      navigator.sendBeacon("/api/click", body);
+      return;
+    }
+
+    fetch("/api/click", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body,
+      keepalive: true,
+    }).catch(() => {});
+  };
+
   useEffect(() => {
     if (burstIndex === null) return;
 
@@ -99,7 +116,7 @@ export default function Header() {
                         top: "8px",
                       }}
                     >
-                      <BurstIcon className="text-[#75747A]" size={24} />
+                      <BurstIcon className="text-[#119da4/20]" size={24} />
                     </span>
                   )}
 
@@ -116,12 +133,15 @@ export default function Header() {
                         rel={
                           href.startsWith("mailto:") ? undefined : "noreferrer"
                         }
-                        onClick={() => onPick(idx)}
+                        onClick={() => {
+                          onPick(idx);
+                          track(key);
+                        }}
                         className={[
                           "group w-12 h-12 rounded-full z-10 relative cursor-pointer",
                           "flex items-center justify-center",
                           "transition-all duration-300 ease-in-out",
-                          isActive ? "text-white scale-105" : "text-[#75747A]",
+                          isActive ? "text-[#568259]/80 scale-105" : "text-[#568259]/40",
                           "hover:scale-110 hover:-translate-y-[2px]",
                           "active:scale-95",
                         ].join(" ")}
@@ -135,7 +155,7 @@ export default function Header() {
                   })}
 
                   <div
-                    className="w-12 h-12 rounded-full bg-transparent border-2 border-white/30 absolute left-2 top-2 transition-transform duration-500 ease-[cubic-bezier(0.68,-0.55,0.27,1.55)] z-0"
+                    className="w-12 h-12 rounded-full bg-transparent border-2 border-[#568259]/40 absolute left-2 top-2 transition-transform duration-500 ease-[cubic-bezier(0.68,-0.55,0.27,1.55)] z-0"
                     style={{
                       transform: `translateX(${active * STEP}px)`,
                     }}

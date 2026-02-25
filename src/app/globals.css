@@ -5,7 +5,9 @@
   --color-title: #383838;
   --color-text: #5D5D5D;
   --color-text-secondary: #C2B3A3;
-  --color-bege: #D8D1C9;
+  --color-branco: #ffffff;
+  --color-cinza: #f1f1f1;
+  --color-azul: #119da4;
 
   --breakpoint-sm: 640px;
   --breakpoint-md: 768px;
@@ -16,6 +18,7 @@
 
 html, body {
   overflow-y: hidden;
+  background-color: var(--color-azul);
 }
 
 ul {
