@@ -5,10 +5,10 @@ import clsx from "clsx";
 
 const variantStyles = {
   primary:
-    "bg-[#2f4731] text-white cursor-pointer hover:bg-gray-300/20 hover:text-title disabled:opacity-60 disabled:pointer-events-none",
+    "bg-[#2f4731] text-white cursor-pointer hover:bg-verde hover:text-white disabled:opacity-60 disabled:pointer-events-none",
 
   secondary:
-    "bg-gray-200 text-gray-800 hover:bg-gray-300 disabled:opacity-60 disabled:pointer-events-none",
+    "bg-transparent cursor-pointer border border-white hover:bg-gray-300 hover:text-verde-escuro disabled:opacity-60 disabled:pointer-events-none",
 
   danger:
     "bg-red-600 text-white hover:bg-red-700 disabled:opacity-60 disabled:pointer-events-none",

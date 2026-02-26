@@ -1,64 +1,217 @@
-import React from "react";
+"use client";
 
-import MainLayout from "@/components/Layout/MainLayout/page";
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Button from "@/components/UI/Button/page";
 
+const STRIPS = 50;
+
 export default function About() {
+  const triggerRef = useRef(null);
+
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+
+    const ctx = gsap.context(() => {
+      const leftBoxes  = gsap.utils.toArray("[data-col='left']  [data-box]");
+      const rightBoxes = gsap.utils.toArray("[data-col='right'] [data-box]");
+
+      gsap.set(leftBoxes,  { xPercent: 110 });
+      gsap.set(rightBoxes, { xPercent: 0 });
+
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: triggerRef.current,
+          scrub: 0.7,
+          pin: true,
+          start: "top top",
+          end: "+=180%",
+          invalidateOnRefresh: true,
+        },
+      });
+
+      tl.to(leftBoxes, {
+        xPercent: 0,
+        ease: "power2.inOut",
+        stagger: { amount: 1.05, from: "end" },
+        duration: 1,
+      }, 0)
+      .to(leftBoxes, {
+        rotation: (i) => (i % 2 === 0 ? 8 : -8),
+        ease: "power2.out",
+        stagger: { amount: 0.7, from: "end" },
+        duration: 0.6,
+      }, 0)
+      .to(leftBoxes, {
+        rotation: 0,
+        ease: "power2.in",
+        stagger: { amount: 0.6, from: "end" },
+        duration: 0.6,
+      }, 0.55)
+
+      .to(rightBoxes, {
+        xPercent: -110,
+        ease: "power2.inOut",
+        stagger: { amount: 1.05, from: "start" },
+        duration: 1,
+      }, 0)
+      .to(rightBoxes, {
+        rotation: (i) => (i % 2 === 0 ? -8 : 8),
+        ease: "power2.out",
+        stagger: { amount: 0.7, from: "start" },
+        duration: 0.6,
+      }, 0)
+      .to(rightBoxes, {
+        rotation: 0,
+        ease: "power2.in",
+        stagger: { amount: 0.6, from: "start" },
+        duration: 0.6,
+      }, 0.55);
+
+    }, triggerRef);
+
+    return () => ctx.revert();
+  }, []);
+
+  const front = ["JavaScript", "React", "GraphQL", "Next.js", "TypeScript", "Tailwind CSS", ];
+  const back = ["Node.js", "Express"];
+  const versionControl = ["Git", "GitHub", "Grafana", "Prometheus"];
+
   return (
-    <section id="about" className="bg-verde w-full min-h-screen py-28">
-      <MainLayout>
-        <div className="flex flex-col gap-10">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white">
-            Sobre
+    <div ref={triggerRef} className="relative w-full min-h-screen overflow-hidden flex flex-col lg:flex-row mx-auto max-w-full" >
+     <div className="hidden lg:block pointer-events-none absolute left-1/2 top-0 h-full w-[2px] bg-verde-escuro z-20" />
+      <div className=" relative w-full lg:w-1/2 min-h-screen lg:h-full overflow-hidden shrink-0">
+        <div className="absolute inset-0 z-0 flex flex-col justify-center pt-24 px-6 sm:px-10 lg:px-[5vw] lg:pt-48 bg-verde-escuro">
+          <p  className="mtext-[11px] font-bold tracking-[0.2em] uppercase text-white mb-3">
+            Trajetória
+          </p >
+          <div className="w-11 h-[3px] bg-verde mb-4" />
+          <h1 className="font-extrabold tracking-[0.02em] mt-6 leading-[0.92] mb-5 text-white text-[clamp(46px,5.5vw,76px)]">
+            Sobre<br />
+            <span className="text-verde">Mim</span>
           </h1>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-            <div className="flex flex-col gap-6">
-              <p className="text-base md:text-lg text-white leading-relaxed">
-                Iniciei minha carreira como Desenvolvedor Front-end em 2024, na
-                Taxcel, atuando no desenvolvimento de soluções fiscais digitais.
-                Com foco em React, Next.js e TypeScript, participei de projetos
-                desafiadores ponta a ponta, desde a estruturação do design
-                system e modelagem de interfaces até integrações com APIs REST
-                e deploy em ambiente produtivo.
-              </p>
-
-              <p className="text-base md:text-lg text-white leading-relaxed">
-                Ao longo dessa trajetória, adquiri experiência em organização
-                de arquitetura front-end, padronização de componentes,
-                versionamento com Git, fluxos de CI/CD e boas práticas de
-                performance e UX/UI. Busco sempre desenvolver soluções
-                escaláveis, bem estruturadas e orientadas à melhor experiência
-                do usuário, agregando valor real ao produto e ao negócio.
-              </p>
-
-              <div>
-                <h2 className="text-lg font-semibold text-white mb-4">
-                  Principais tecnologias
-                </h2>
-
-                <h3 className="text-sm font-semibold text-white/90 mb-1">
-                  Front-end
-                </h3>
-
-                <div className="flex flex-wrap gap-3">
-                  <Button variant="primary" size="sm">
-                    React
-                  </Button>
-
-                  <Button variant="primary" size="sm">
-                    Next.js
-                  </Button>
-
-                  <Button variant="primary" size="sm">
-                    TypeScript
-                  </Button>
-                </div>
-              </div>
-            </div>
+          <p className="text-white leading-[1.8] max-w-[480px] lg:text-lg text-[clamp(13px,1.1vw,15px)]">
+           Iniciei minha carreira como Desenvolvedor Front-end em 2024, na Taxcel, atuando no desenvolvimento de soluções fiscais digitais. Com foco em React, Next.js e TypeScript, participei de projetos desafiadores ponta a ponta, desde a estruturação do design system e modelagem de interfaces até integrações com APIs REST e deploy em ambiente produtivo.
+          </p>
+          <div className="flex flex-col gap-2">
+          <div className="flex flex-col text-white">
+              <p className="mtext-[11px] font-bold tracking-[0.2em] uppercase my-3">Educação</p>
+           <div className="flex flex-row justify-start items-center">
+            <p>Ada Tech & Santander</p>
+            <Button variant="secondary" size="sm" className="ml-4 text-white">
+              2024 - 2024
+            </Button>
+           </div>
+           <p>Santander Coders / Front-End</p>
+          </div>
+          <div className="flex flex-col text-white">
+           <div className="flex flex-row justify-start items-center">
+            <p>Universidade Paulista</p>
+            <Button variant="secondary" size="sm" className="ml-4 text-white">
+              2022 - 2024
+            </Button>
+           </div>
+           <p>Análise e Desenvolvimento de Sistemas</p>
+          </div>
           </div>
         </div>
-      </MainLayout>
-    </section>
+
+        <div
+          data-col="left"
+          className="absolute inset-0 z-10 grid pointer-events-none"
+          style={{ gridTemplateRows: `repeat(${STRIPS}, minmax(0, 1fr))` }}
+        >
+          {Array.from({ length: STRIPS }).map((_, i) => (
+            <div
+              key={i}
+              data-box
+              className={[
+                "bg-[#0b0b0b] will-change-transform",
+                i !== 0 ? "-mt-px" : "",
+                "shadow-[inset_0_1px_0_rgba(255,255,255,0.03)]",
+              ].join(" ")}
+              style={{
+                transform: "translateZ(0) scaleY(1.02)",
+                transformOrigin: i % 2 === 0 ? "left center" : "right center",
+              }}
+            />
+          ))}
+        </div>
+      </div>
+
+     
+      <div className=" relative w-full lg:w-1/2 min-h-screen lg:h-full overflow-hidden shrink-0">
+        <div className="absolute inset-0 z-0 flex flex-col justify-center px-6 sm:px-10 lg:px-[5vw] lg:pt-52 bg-verde-escuro">
+          <p className="mtext-[11px] font-bold tracking-[0.2em] uppercase text-white mb-3">
+            Stack
+          </p>
+            <div className="w-11 h-[3px] bg-verde mb-4" />
+          <h1 className="font-extrabold mt-6 tracking-[0.02em] leading-[0.92] mb-5 text-white text-[clamp(46px,5.5vw,76px)]">
+            Tech<br />
+            <span className="text-verde">Skills</span>
+          </h1>
+          <p className="text-white leading-[1.8] max-w-[480px] lg:text-lg text-[clamp(13px,1.1vw,15px)]">
+            Ao longo dessa trajetória, adquiri experiência em organização de arquitetura front-end, padronização de componentes, versionamento com Git, fluxos de CI/CD e boas práticas de performance e UX/UI. Busco sempre desenvolver soluções escaláveis, bem estruturadas e orientadas à melhor experiência do usuário, agregando valor real ao produto e ao negócio.
+          </p>
+          <p className="text-white font-semibold mt-2 ">Frontend</p>
+          <div className="flex flex-wrap gap-2">
+            {front.map((t) => (
+              <Button variant="primary" size="sm"
+                key={t}
+              className="text-white mt-1"
+              >
+                {t}
+              </Button>
+            ))}
+          </div>
+          <p className="text-white font-semibold mt-4">Backend</p>
+          <div className="flex flex-wrap gap-2">
+            {back.map((t) => (
+              <Button variant="primary" size="sm"
+                key={t}
+              className="text-white mt-1"
+              >
+                {t}
+              </Button>
+            ))}
+          </div>
+          <p className="text-white font-semibold mt-4">Controle de verisonamento e observabilidade</p>
+          <div className="flex flex-wrap gap-2">
+            {versionControl.map((t) => (
+              <Button variant="primary" size="sm"
+                key={t}
+              className="text-white mt-1"
+              >
+                {t}
+              </Button>
+            ))}
+          </div>
+        </div>
+
+      
+        <div
+          data-col="right"
+          className="absolute inset-0 z-10 grid pointer-events-none"
+          style={{ gridTemplateRows: `repeat(${STRIPS}, minmax(0, 1fr))` }}
+        >
+          {Array.from({ length: STRIPS }).map((_, i) => (
+            <div
+              key={i}
+              data-box
+              className={[
+                "bg-[#0b0b0b] will-change-transform",
+                i !== 0 ? "-mt-px" : "",
+                "shadow-[inset_0_1px_0_rgba(255,255,255,0.03)]",
+              ].join(" ")}
+              style={{
+                transform: "translateZ(0) scaleY(1.02)",
+                transformOrigin: i % 2 === 0 ? "left center" : "right center",
+              }}
+            />
+          ))}
+        </div>
+      </div>
+    </div>
   );
 }
