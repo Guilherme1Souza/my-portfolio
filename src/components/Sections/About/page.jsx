@@ -80,9 +80,9 @@ export default function About() {
 
   return (
     <div ref={triggerRef} className="relative w-full min-h-screen overflow-hidden flex flex-col lg:flex-row mx-auto max-w-full" >
-     <div className="hidden lg:block pointer-events-none absolute left-1/2 top-0 h-full w-[2px] bg-verde-escuro z-20" />
+     <div className="hidden lg:block pointer-events-none absolute left-1/2 top-0 h-[1400px] w-[2px] bg-verde-escuro z-20" />
       <div className=" relative w-full lg:w-1/2 min-h-screen lg:h-full overflow-hidden shrink-0">
-        <div className="absolute inset-0 z-0 flex flex-col justify-center pt-24 px-6 sm:px-10 lg:px-[5vw] lg:pt-48 bg-verde-escuro">
+        <div className="absolute inset-0 z-0 flex flex-col justify-center pt-24 px-6 sm:px-10 lg:px-[5vw] lg:pt-25 bg-verde-escuro">
           <p  className="mtext-[11px] font-bold tracking-[0.2em] uppercase text-white mb-3">
             Trajetória
           </p >
@@ -91,8 +91,8 @@ export default function About() {
             Sobre<br />
             <span className="text-verde">Mim</span>
           </h1>
-          <p className="text-white leading-[1.8] max-w-[480px] lg:text-lg text-[clamp(13px,1.1vw,15px)]">
-           Iniciei minha carreira como Desenvolvedor Front-end em 2024, na Taxcel, atuando no desenvolvimento de soluções fiscais digitais. Com foco em React, Next.js e TypeScript, participei de projetos desafiadores ponta a ponta, desde a estruturação do design system e modelagem de interfaces até integrações com APIs REST e deploy em ambiente produtivo.
+          <p className="text-white leading-[1.8] max-w-[600px] lg:text-lg text-[clamp(13px,1.1vw,15px)]">
+           Iniciei minha carreira como Desenvolvedor Front-end em 2024, na Taxcel, atuando no desenvolvimento de soluções fiscais digitais. Participei de projetos desafiadores ponta a ponta, desde a estruturação do design system e modelagem de interfaces até integrações com APIs REST e deploy em ambiente produtivo.
           </p>
           <div className="flex flex-col gap-2">
           <div className="flex flex-col text-white">
@@ -142,7 +142,7 @@ export default function About() {
 
      
       <div className=" relative w-full lg:w-1/2 min-h-screen lg:h-full overflow-hidden shrink-0">
-        <div className="absolute inset-0 z-0 flex flex-col justify-center px-6 sm:px-10 lg:px-[5vw] lg:pt-52 bg-verde-escuro">
+        <div className="absolute inset-0 z-0 flex flex-col justify-center px-6 sm:px-10 lg:px-[5vw] lg:pt-23 bg-verde-escuro">
           <p className="mtext-[11px] font-bold tracking-[0.2em] uppercase text-white mb-3">
             Stack
           </p>
@@ -151,8 +151,8 @@ export default function About() {
             Tech<br />
             <span className="text-verde">Skills</span>
           </h1>
-          <p className="text-white leading-[1.8] max-w-[480px] lg:text-lg text-[clamp(13px,1.1vw,15px)]">
-            Ao longo dessa trajetória, adquiri experiência em organização de arquitetura front-end, padronização de componentes, versionamento com Git, fluxos de CI/CD e boas práticas de performance e UX/UI. Busco sempre desenvolver soluções escaláveis, bem estruturadas e orientadas à melhor experiência do usuário, agregando valor real ao produto e ao negócio.
+          <p className="text-white leading-[1.8] max-w-[600px] lg:text-lg text-[clamp(13px,1.1vw,15px)]">
+            Ao longo dessa trajetória, adquiri experiência em organização de arquitetura front-end, padronização de componentes, versionamento com Git, fluxos de CI/CD e boas práticas de performance e UX/UI. 
           </p>
           <p className="text-white font-semibold mt-2 ">Frontend</p>
           <div className="flex flex-wrap gap-2">
