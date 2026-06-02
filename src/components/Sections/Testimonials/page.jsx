@@ -23,18 +23,19 @@ export default function Testimonials() {
       <div
         ref={ref}
         className={[
-          "w-[90%] max-w-[1100px] mx-auto transition-all duration-700 ease-out",
+          "w-[90%] max-w-[1440px] mx-auto transition-all duration-700 ease-out",
           inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6",
         ].join(" ")}
       >
-        {/* Cabeçalho (padrão das demais seções) */}
-        <header className="mb-14 lg:mb-20 text-center flex flex-col items-center">
+        {/* Cabeçalho (mesmo eixo/estilo das demais seções) */}
+        <header className="mb-14 lg:mb-20">
           <p className="font-bold tracking-[0.2em] uppercase text-verde text-[11px] mb-3">
             Depoimentos
           </p>
           <div className="w-11 h-[3px] bg-verde mb-4" />
           <h2 className="font-extrabold tracking-[0.02em] leading-[0.92] text-white text-[clamp(40px,5vw,68px)]">
-            O que dizem <span className="text-verde">sobre mim</span>
+            O que dizem<br />
+            <span className="text-verde">sobre mim</span>
           </h2>
         </header>
 
@@ -53,7 +54,7 @@ export default function Testimonials() {
         </div>
 
         {/* Controles */}
-        <div className="flex items-center justify-center gap-6 mt-12">
+        <div className="flex items-center justify-start gap-6 mt-12">
           <button
             type="button"
             onClick={prev}

@@ -16,7 +16,7 @@ export default function TestimonialCard({ testimonial }) {
   const { quote, name, role, company, avatar, imageAlt } = testimonial;
 
   return (
-    <figure className="flex flex-col items-center text-center px-2 sm:px-6">
+    <figure className="flex flex-col items-start text-left">
       {/* Aspas decorativas */}
       <span
         aria-hidden="true"
@@ -27,35 +27,37 @@ export default function TestimonialCard({ testimonial }) {
       </span>
 
       <blockquote
-        className="text-white/90 leading-[1.7] max-w-[760px] -mt-4 mb-8"
+        className="text-white/90 leading-[1.7] max-w-[820px] -mt-4 mb-8"
         style={{ fontSize: "clamp(16px, 1.6vw, 24px)" }}
       >
         {quote}
       </blockquote>
 
-      {/* Avatar com fallback de iniciais */}
-      <div className="relative w-14 h-14 rounded-full overflow-hidden ring-2 ring-verde/60 mb-3">
-        {avatar ? (
-          <Image
-            src={avatar}
-            alt={imageAlt ?? name}
-            fill
-            className="object-cover"
-            sizes="56px"
-          />
-        ) : (
-          <div className="absolute inset-0 flex items-center justify-center bg-verde text-white font-bold text-lg">
-            {getInitials(name)}
-          </div>
-        )}
-      </div>
+      {/* Autor: avatar + nome/cargo */}
+      <figcaption className="flex items-center gap-4">
+        <div className="relative w-14 h-14 rounded-full overflow-hidden ring-2 ring-verde/60 shrink-0">
+          {avatar ? (
+            <Image
+              src={avatar}
+              alt={imageAlt ?? name}
+              fill
+              className="object-cover"
+              sizes="56px"
+            />
+          ) : (
+            <div className="absolute inset-0 flex items-center justify-center bg-verde text-white font-bold text-lg">
+              {getInitials(name)}
+            </div>
+          )}
+        </div>
 
-      <figcaption className="flex flex-col">
-        <span className="text-white font-semibold tracking-wide">{name}</span>
-        <span className="text-white/60 text-sm">
-          {role}
-          {company ? ` · ${company}` : ""}
-        </span>
+        <div className="flex flex-col">
+          <span className="text-white font-semibold tracking-wide">{name}</span>
+          <span className="text-white/60 text-sm">
+            {role}
+            {company ? ` · ${company}` : ""}
+          </span>
+        </div>
       </figcaption>
     </figure>
   );
