@@ -38,26 +38,34 @@ const Button = forwardRef(function Button(
     disabled = false,
     className,
     type = "button",
+    href,
     ...props
   },
   ref,
 ) {
+  const isLink = href != null;
+  const Comp = isLink ? "a" : "button";
+
+  // Atributos específicos de cada elemento (evita type/disabled em <a>)
+  const elementProps = isLink
+    ? { href }
+    : { type, disabled: disabled || loading, "aria-busy": loading };
+
   return (
-    <button
+    <Comp
       ref={ref}
-      type={type}
-      disabled={disabled || loading}
-      aria-busy={loading}
       className={clsx(
         "inline-flex items-center justify-center font-semibold transition-all duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-[#3C5B3E]/40",
         variantStyles[variant],
         sizeStyles[size],
+        isLink && (disabled || loading) && "opacity-60 pointer-events-none",
         className,
       )}
+      {...elementProps}
       {...props}
     >
       {children}
-    </button>
+    </Comp>
   );
 });
 

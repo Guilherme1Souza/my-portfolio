@@ -1,10 +1,10 @@
 "use client";
 
 import React from "react";
-import MainLayout from "@/components/Layout/MainLayout/page";
 import NavBar from "@/components/Layout/NavBar/page";
 import Header from "@/components/Sections/Header/page";
 import About from "@/components/Sections/About/page";
+import Projects from "@/components/Sections/Projects/page";
 
 export default function Home() {
   return (
@@ -12,6 +12,7 @@ export default function Home() {
       <NavBar />
       <Header />
       <About />
+      <Projects />
     </>
   );
 }

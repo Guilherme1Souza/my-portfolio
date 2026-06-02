@@ -17,7 +17,7 @@ const LINKS = [
     accent: "text-[#568259]/20",
   },
   {
-    href: "#",
+    href: "#projects",
     title: "Projetos",
     descr: "Conheça alguns dos meus trabalhos",
     accent: "text-[#568259]/20",
