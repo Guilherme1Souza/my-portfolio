@@ -23,7 +23,7 @@ const LINKS = [
     accent: "text-[#568259]/20",
   },
   {
-    href: "#",
+    href: "#testimonials",
     title: "Testemunhas",
     descr: "O que meus clientes dizem",
     accent: "text-[#568259]/20",
