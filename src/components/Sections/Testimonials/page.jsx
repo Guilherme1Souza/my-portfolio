@@ -39,14 +39,14 @@ export default function Testimonials() {
           </h2>
         </header>
 
-        {/* Trilho do carrossel */}
-        <div className="overflow-hidden">
+        {/* Trilho do carrossel (py p/ não cortar a sombra do card) */}
+        <div className="overflow-hidden px-1 py-6">
           <div
             className="flex transition-transform duration-500 ease-out"
             style={{ transform: `translateX(-${active * 100}%)` }}
           >
             {testimonials.map((t) => (
-              <div key={t.id} className="w-full shrink-0">
+              <div key={t.id} className="w-full shrink-0 px-2">
                 <TestimonialCard testimonial={t} />
               </div>
             ))}
@@ -54,7 +54,7 @@ export default function Testimonials() {
         </div>
 
         {/* Controles */}
-        <div className="flex items-center justify-start gap-6 mt-12">
+        <div className="flex items-center justify-center gap-6 mt-12">
           <button
             type="button"
             onClick={prev}
