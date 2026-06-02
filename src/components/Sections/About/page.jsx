@@ -1,85 +1,14 @@
 "use client";
 
-import { useEffect, useRef } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Button from "@/components/UI/Button/page";
 
-const STRIPS = 50;
-
 export default function About() {
-  const triggerRef = useRef(null);
-
-  useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-
-    const ctx = gsap.context(() => {
-      const leftBoxes  = gsap.utils.toArray("[data-col='left']  [data-box]");
-      const rightBoxes = gsap.utils.toArray("[data-col='right'] [data-box]");
-
-      gsap.set(leftBoxes,  { xPercent: 110 });
-      gsap.set(rightBoxes, { xPercent: 0 });
-
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: triggerRef.current,
-          scrub: 0.7,
-          pin: true,
-          start: "top top",
-          end: "+=180%",
-          invalidateOnRefresh: true,
-        },
-      });
-
-      tl.to(leftBoxes, {
-        xPercent: 0,
-        ease: "power2.inOut",
-        stagger: { amount: 1.05, from: "end" },
-        duration: 1,
-      }, 0)
-      .to(leftBoxes, {
-        rotation: (i) => (i % 2 === 0 ? 8 : -8),
-        ease: "power2.out",
-        stagger: { amount: 0.7, from: "end" },
-        duration: 0.6,
-      }, 0)
-      .to(leftBoxes, {
-        rotation: 0,
-        ease: "power2.in",
-        stagger: { amount: 0.6, from: "end" },
-        duration: 0.6,
-      }, 0.55)
-
-      .to(rightBoxes, {
-        xPercent: -110,
-        ease: "power2.inOut",
-        stagger: { amount: 1.05, from: "start" },
-        duration: 1,
-      }, 0)
-      .to(rightBoxes, {
-        rotation: (i) => (i % 2 === 0 ? -8 : 8),
-        ease: "power2.out",
-        stagger: { amount: 0.7, from: "start" },
-        duration: 0.6,
-      }, 0)
-      .to(rightBoxes, {
-        rotation: 0,
-        ease: "power2.in",
-        stagger: { amount: 0.6, from: "start" },
-        duration: 0.6,
-      }, 0.55);
-
-    }, triggerRef);
-
-    return () => ctx.revert();
-  }, []);
-
   const front = ["JavaScript", "React", "GraphQL", "Next.js", "TypeScript", "Tailwind CSS", ];
   const back = ["Node.js", "Express"];
   const versionControl = ["Git", "GitHub", "Grafana", "Prometheus"];
 
   return (
-    <div ref={triggerRef} className="relative w-full min-h-screen overflow-hidden flex flex-col lg:flex-row mx-auto max-w-full" >
+    <div id="about" className="relative w-full min-h-screen overflow-hidden flex flex-col lg:flex-row mx-auto max-w-full scroll-mt-24" >
      <div className="hidden lg:block pointer-events-none absolute left-1/2 top-0 h-[1400px] w-[2px] bg-verde-escuro z-20" />
       <div className=" relative w-full lg:w-1/2 min-h-screen lg:h-full overflow-hidden shrink-0">
         <div className="absolute inset-0 z-0 flex flex-col justify-center pt-24 px-6 sm:px-10 lg:px-[5vw] lg:pt-25 bg-verde-escuro">
@@ -115,28 +44,6 @@ export default function About() {
            <p>Análise e Desenvolvimento de Sistemas</p>
           </div>
           </div>
-        </div>
-
-        <div
-          data-col="left"
-          className="absolute inset-0 z-10 grid pointer-events-none"
-          style={{ gridTemplateRows: `repeat(${STRIPS}, minmax(0, 1fr))` }}
-        >
-          {Array.from({ length: STRIPS }).map((_, i) => (
-            <div
-              key={i}
-              data-box
-              className={[
-                "bg-[#0b0b0b] will-change-transform",
-                i !== 0 ? "-mt-px" : "",
-                "shadow-[inset_0_1px_0_rgba(255,255,255,0.03)]",
-              ].join(" ")}
-              style={{
-                transform: "translateZ(0) scaleY(1.02)",
-                transformOrigin: i % 2 === 0 ? "left center" : "right center",
-              }}
-            />
-          ))}
         </div>
       </div>
 
@@ -187,29 +94,6 @@ export default function About() {
               </Button>
             ))}
           </div>
-        </div>
-
-      
-        <div
-          data-col="right"
-          className="absolute inset-0 z-10 grid pointer-events-none"
-          style={{ gridTemplateRows: `repeat(${STRIPS}, minmax(0, 1fr))` }}
-        >
-          {Array.from({ length: STRIPS }).map((_, i) => (
-            <div
-              key={i}
-              data-box
-              className={[
-                "bg-[#0b0b0b] will-change-transform",
-                i !== 0 ? "-mt-px" : "",
-                "shadow-[inset_0_1px_0_rgba(255,255,255,0.03)]",
-              ].join(" ")}
-              style={{
-                transform: "translateZ(0) scaleY(1.02)",
-                transformOrigin: i % 2 === 0 ? "left center" : "right center",
-              }}
-            />
-          ))}
         </div>
       </div>
     </div>
