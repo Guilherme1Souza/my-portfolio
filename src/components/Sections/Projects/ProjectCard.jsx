@@ -1,23 +1,18 @@
-"use client";
-
 import Image from "next/image";
 import { ArrowUpRightIcon } from "@heroicons/react/24/outline";
 import Button from "@/components/UI/Button/Button";
-import useInView from "@/hooks/useInView";
+import Reveal from "@/components/UI/Reveal/Reveal";
 
 export default function ProjectCard({ project, index }) {
-  const [ref, inView] = useInView();
   const isOdd = index % 2 === 1;
   const number = String(index + 1).padStart(2, "0");
 
   return (
-    <article
-      ref={ref}
+    <Reveal
+      as="article"
       className={[
         "flex flex-col gap-8 lg:gap-14 items-center",
         isOdd ? "lg:flex-row-reverse" : "lg:flex-row",
-        "transition-all duration-700 ease-out",
-        inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6",
       ].join(" ")}
     >
       {/* Imagem */}
@@ -75,6 +70,6 @@ export default function ProjectCard({ project, index }) {
           </Button>
         </div>
       </div>
-    </article>
+    </Reveal>
   );
 }

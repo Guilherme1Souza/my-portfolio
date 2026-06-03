@@ -1,25 +1,15 @@
-"use client";
-
-import useInView from "@/hooks/useInView";
+import Reveal from "@/components/UI/Reveal/Reveal";
 import ContactForm from "./ContactForm";
 
 export default function Contact() {
-  const [ref, inView] = useInView();
-
   return (
     <section
       id="contact"
       className="relative w-full bg-branco scroll-mt-24 py-24 lg:py-32"
     >
-      <div
-        ref={ref}
-        className={[
-          "w-[90%] max-w-[1440px] mx-auto transition-all duration-700 ease-out",
-          inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6",
-        ].join(" ")}
-      >
+      <Reveal className="w-[90%] max-w-[1440px] mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
-          {/* ─── Coluna esquerda: convite + contato direto ─── */}
+          {/* ─── Coluna esquerda: convite ─── */}
           <div>
             <header className="mb-8 lg:mb-10">
               <p className="font-bold tracking-[0.2em] uppercase text-verde text-[11px] mb-3">
@@ -43,7 +33,7 @@ export default function Contact() {
             <ContactForm />
           </div>
         </div>
-      </div>
+      </Reveal>
     </section>
   );
 }
