@@ -1,6 +1,6 @@
 "use client";
 
-import Button from "@/components/UI/Button/page";
+import Button from "@/components/UI/Button/Button";
 
 export default function About() {
   const front = ["JavaScript", "React", "GraphQL", "Next.js", "TypeScript", "Tailwind CSS"];

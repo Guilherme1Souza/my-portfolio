@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 import Image from "next/image";
 import bgHeader from "@/images/header.png";
-import MainLayout from "../../Layout/MainLayout/page";
+import MainLayout from "../../Layout/MainLayout/MainLayout";
 
 const ICONS = [
   { key: "github", Icon: FaGithub, href: "https://github.com/Guilherme1Souza" },

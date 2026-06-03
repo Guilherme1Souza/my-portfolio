@@ -1,13 +1,13 @@
 "use client";
 
 import React from "react";
-import NavBar from "@/components/Layout/NavBar/page";
-import Header from "@/components/Sections/Header/page";
-import About from "@/components/Sections/About/page";
-import Projects from "@/components/Sections/Projects/page";
-import Testimonials from "@/components/Sections/Testimonials/page";
-import Contact from "@/components/Sections/Contact/page";
-import Footer from "@/components/Layout/Footer/page";
+import NavBar from "@/components/Layout/NavBar/NavBar";
+import Header from "@/components/Sections/Header/Header";
+import About from "@/components/Sections/About/About";
+import Projects from "@/components/Sections/Projects/Projects";
+import Testimonials from "@/components/Sections/Testimonials/Testimonials";
+import Contact from "@/components/Sections/Contact/Contact";
+import Footer from "@/components/Layout/Footer/Footer";
 
 export default function Home() {
   return (

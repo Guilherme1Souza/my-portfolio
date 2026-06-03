@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { ArrowUpRightIcon } from "@heroicons/react/24/outline";
-import Button from "@/components/UI/Button/page";
+import Button from "@/components/UI/Button/Button";
 import useInView from "@/hooks/useInView";
 
 export default function ProjectCard({ project, index }) {

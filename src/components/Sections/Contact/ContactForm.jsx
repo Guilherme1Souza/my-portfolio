@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import Button from "@/components/UI/Button/page";
+import Button from "@/components/UI/Button/Button";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const EMPTY = { name: "", email: "", message: "", company: "" };
