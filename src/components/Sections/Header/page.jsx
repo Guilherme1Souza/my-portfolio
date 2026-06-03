@@ -25,22 +25,6 @@ export default function Header() {
   const [burstIndex, setBurstIndex] = useState(null);
   const [burstOut, setBurstOut] = useState(false);
 
-  const track = (key) => {
-    const body = JSON.stringify({ target: key });
-
-    if (navigator.sendBeacon) {
-      navigator.sendBeacon("/api/click", body);
-      return;
-    }
-
-    fetch("/api/click", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body,
-      keepalive: true,
-    }).catch(() => {});
-  };
-
   useEffect(() => {
     if (burstIndex === null) return;
 
@@ -142,10 +126,7 @@ export default function Header() {
                         href={href}
                         target={isMail ? undefined : "_blank"}
                         rel={isMail ? undefined : "noreferrer"}
-                        onClick={() => {
-                          onPick(idx);
-                          track(key);
-                        }}
+                        onClick={() => onPick(idx)}
                         className={[
                           "group w-12 h-12 rounded-full z-10 relative cursor-pointer",
                           "flex items-center justify-center",
