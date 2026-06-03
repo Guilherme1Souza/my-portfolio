@@ -1,7 +1,5 @@
 "use client";
 
-import { ArrowUpRightIcon } from "@heroicons/react/24/outline";
-import { EMAIL, socials } from "@/data/contact";
 import useInView from "@/hooks/useInView";
 import ContactForm from "./ContactForm";
 
