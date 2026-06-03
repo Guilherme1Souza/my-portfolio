@@ -38,33 +38,6 @@ export default function Contact() {
               Estou aberto a oportunidades e projetos como Desenvolvedor
               Front-end. Use o formulário ou, se preferir, o e-mail direto.
             </p>
-
-            <a
-              href={`mailto:${EMAIL}`}
-              className="group inline-flex items-center gap-2 text-title hover:text-verde transition-colors duration-200 break-all"
-            >
-              <span className="font-bold text-[clamp(16px,1.8vw,22px)]">{EMAIL}</span>
-              <ArrowUpRightIcon className="w-5 h-5 shrink-0 transition-transform duration-200 group-hover:translate-x-1 group-hover:-translate-y-1" />
-            </a>
-
-            <div className="flex flex-wrap gap-3 mt-8">
-              {socials.map(({ key, label, href, Icon }) => {
-                const isMail = href.startsWith("mailto:");
-                return (
-                  <a
-                    key={key}
-                    href={href}
-                    target={isMail ? undefined : "_blank"}
-                    rel={isMail ? undefined : "noreferrer"}
-                    aria-label={label}
-                    className="group inline-flex items-center gap-2 px-4 py-2.5 rounded-full border border-title/15 text-title transition-colors duration-200 hover:border-verde hover:text-verde focus:outline-none focus:ring-2 focus:ring-verde/40"
-                  >
-                    <Icon className="w-5 h-5" />
-                    <span className="font-medium text-sm">{label}</span>
-                  </a>
-                );
-              })}
-            </div>
           </div>
 
           {/* ─── Coluna direita: formulário ─── */}
