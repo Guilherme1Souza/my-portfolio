@@ -28,7 +28,8 @@ export default function Header() {
   useEffect(() => {
     if (burstIndex === null) return;
 
-    setBurstOut(false);
+    // burstOut já foi resetado para false em onPick; aqui só disparamos
+    // a animação no frame seguinte e limpamos ao final.
     const raf = requestAnimationFrame(() => setBurstOut(true));
 
     const t = setTimeout(() => {
@@ -44,6 +45,7 @@ export default function Header() {
 
   const onPick = (idx) => {
     setActive(idx);
+    setBurstOut(false);
     setBurstIndex(idx);
   };
 

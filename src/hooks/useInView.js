@@ -29,8 +29,8 @@ export default function useInView({
       window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
 
     if (prefersReducedMotion || typeof IntersectionObserver === "undefined") {
-      setInView(true);
-      return;
+      const raf = requestAnimationFrame(() => setInView(true));
+      return () => cancelAnimationFrame(raf);
     }
 
     const observer = new IntersectionObserver(
