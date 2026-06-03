@@ -29,9 +29,9 @@ const LINKS = [
     accent: "text-[#568259]/20",
   },
   {
-    href: "#",
+    href: "#contact",
     title: "Contatos",
-    descr: "Prestamos serviços para todo o Brasil",
+    descr: "Vamos conversar sobre o seu projeto",
     accent: "text-[#568259]/20",
   },
 ];
