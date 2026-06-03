@@ -51,7 +51,7 @@ export default function ContactForm() {
       }
 
       setStatus("success");
-      setFeedback("Mensagem enviada! Retorno o quanto antes. 🙌");
+      setFeedback("Mensagem enviada! Obrigado por entrar em contato.");
       setForm(EMPTY);
     } catch (err) {
       setStatus("error");
