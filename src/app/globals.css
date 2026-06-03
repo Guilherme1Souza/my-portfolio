@@ -9,8 +9,13 @@
   --color-branco: #ffffff;
   --color-cinza: #f1f1f1;
   --color-azul: #119da4;
-  --color-verde: #568259;
+  /* Escala de verde, do mais escuro ao mais claro */
   --color-verde-escuro: #212e22;
+  --color-verde-musgo: #2f4731;
+  --color-verde-pinho: #3C5B3E;
+  --color-verde: #568259;
+  /* Neutro quase preto (overlay/menu) */
+  --color-grafite: #2c2c2c;
 
   --breakpoint-sm: 640px;
   --breakpoint-md: 768px;

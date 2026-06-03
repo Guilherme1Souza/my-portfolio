@@ -9,31 +9,31 @@ const LINKS = [
     href: "#home",
     title: "Home",
     descr: "Ir para a página inicial",
-    accent: "text-[#568259]/20",
+    accent: "text-verde/20",
   },
   {
     href: "#about",
     title: "Sobre",
     descr: "Quem é o Guilherme?",
-    accent: "text-[#568259]/20",
+    accent: "text-verde/20",
   },
   {
     href: "#projects",
     title: "Projetos",
     descr: "Conheça alguns dos meus trabalhos",
-    accent: "text-[#568259]/20",
+    accent: "text-verde/20",
   },
   {
     href: "#testimonials",
     title: "Testemunhas",
     descr: "O que meus clientes dizem",
-    accent: "text-[#568259]/20",
+    accent: "text-verde/20",
   },
   {
     href: "#contact",
     title: "Contatos",
     descr: "Vamos conversar sobre o seu projeto",
-    accent: "text-[#568259]/20",
+    accent: "text-verde/20",
   },
 ];
 
@@ -104,7 +104,7 @@ export default function NavBar() {
             <a
               href="#"
               title="Our Nice Logo"
-              className="flex items-center justify-center w-[50px] h-[50px] rounded-full bg-verde text-[#2c2c2c] text-[25px] font-bold"
+              className="flex items-center justify-center w-[50px] h-[50px] rounded-full bg-verde text-grafite text-[25px] font-bold"
             ></a>
 
             <button
@@ -153,7 +153,7 @@ export default function NavBar() {
       >
         <div
           className={[
-            "absolute inset-0 bg-[#2c2c2c] pointer-events-none",
+            "absolute inset-0 bg-grafite pointer-events-none",
             "origin-left scale-x-0",
             open ? "scale-x-100" : "scale-x-0",
             "transition-transform duration-300 ease-out",
@@ -195,7 +195,7 @@ export default function NavBar() {
               >
                 <span
                   className="
-                    absolute left-[5%] top-[45%] h-[3px] w-[90%] rounded-[3px] bg-[#2c2c2c]
+                    absolute left-[5%] top-[45%] h-[3px] w-[90%] rounded-[3px] bg-grafite
                     rotate-45 transition-transform duration-150
                     [transition-timing-function:cubic-bezier(0,1.07,1,2.71)]
                     hover:rotate-[25deg]
@@ -203,7 +203,7 @@ export default function NavBar() {
                 />
                 <span
                   className="
-                    absolute left-[5%] top-[45%] h-[3px] w-[90%] rounded-[3px] bg-[#2c2c2c]
+                    absolute left-[5%] top-[45%] h-[3px] w-[90%] rounded-[3px] bg-grafite
                     -rotate-45 transition-transform duration-150
                     [transition-timing-function:cubic-bezier(0,1.07,1,2.71)]
                     hover:-rotate-[25deg]
@@ -231,7 +231,7 @@ export default function NavBar() {
                       l.delay,
                     ].join(" ")}
                   >
-                    <span className=" absolute inset-0 z-10 origin-left scale-x-0 bg-[#2c2c2c] pointer-events-none group-hover:animate-sweep" />
+                    <span className=" absolute inset-0 z-10 origin-left scale-x-0 bg-grafite pointer-events-none group-hover:animate-sweep" />
                     <span
                       className={[
                         "absolute -top-5 -left-5 -z-10 select-none pointer-events-none",
@@ -249,7 +249,7 @@ export default function NavBar() {
                     href={l.href}
                     title={l.title}
                     onClick={(e) => handleNav(e, l.href)}
-                    className="relative z-20 flex flex-col items-start text-[#2c2c2c]"
+                    className="relative z-20 flex flex-col items-start text-grafite"
                   >
                     <span className="text-[3.4rem] font-bold tracking-[2px] transition-transform duration-200 ease-out group-hover:translate-x-[10px] delay-0 group-hover:delay-[450ms]">
                       {l.title}

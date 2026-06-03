@@ -111,7 +111,7 @@ export default function Header() {
                         top: "8px",
                       }}
                     >
-                      <BurstIcon className="text-[#119da4/20]" size={24} />
+                      <BurstIcon className="text-azul/20" size={24} />
                     </span>
                   )}
 
@@ -131,8 +131,8 @@ export default function Header() {
                           "flex items-center justify-center",
                           "transition-all duration-300 ease-in-out",
                           isActive
-                            ? "text-[#568259]/80 scale-105"
-                            : "text-[#568259]/40",
+                            ? "text-verde/80 scale-105"
+                            : "text-verde/40",
                           "hover:scale-110 hover:-translate-y-[2px]",
                           "active:scale-95",
                         ].join(" ")}
@@ -146,7 +146,7 @@ export default function Header() {
                   })}
 
                   <div
-                    className="w-12 h-12 rounded-full bg-transparent border-2 border-[#568259]/40 absolute left-2 top-2 transition-transform duration-500 ease-[cubic-bezier(0.68,-0.55,0.27,1.55)] z-0"
+                    className="w-12 h-12 rounded-full bg-transparent border-2 border-verde/40 absolute left-2 top-2 transition-transform duration-500 ease-[cubic-bezier(0.68,-0.55,0.27,1.55)] z-0"
                     style={{ transform: `translateX(${active * STEP}px)` }}
                   />
                 </div>

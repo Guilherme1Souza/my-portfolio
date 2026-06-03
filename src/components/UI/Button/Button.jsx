@@ -5,7 +5,7 @@ import clsx from "clsx";
 
 const variantStyles = {
   primary:
-    "bg-[#2f4731] text-white cursor-pointer hover:bg-verde hover:text-white disabled:opacity-60 disabled:pointer-events-none",
+    "bg-verde-musgo text-white cursor-pointer hover:bg-verde hover:text-white disabled:opacity-60 disabled:pointer-events-none",
 
   secondary:
     "bg-transparent cursor-pointer border border-white hover:bg-gray-300 hover:text-verde-escuro disabled:opacity-60 disabled:pointer-events-none",
@@ -14,13 +14,13 @@ const variantStyles = {
     "bg-red-600 text-white hover:bg-red-700 disabled:opacity-60 disabled:pointer-events-none",
 
   success:
-    "bg-[#3C5B3E] text-white hover:bg-[#2f4731] disabled:opacity-60 disabled:pointer-events-none",
+    "bg-verde-pinho text-white hover:bg-verde-musgo disabled:opacity-60 disabled:pointer-events-none",
 
   ghost:
-    "bg-transparent text-[#3C5B3E] hover:bg-[#3C5B3E]/10 disabled:opacity-60 disabled:pointer-events-none",
+    "bg-transparent text-verde-pinho hover:bg-verde-pinho/10 disabled:opacity-60 disabled:pointer-events-none",
 
   outline:
-    "bg-transparent border border-[#3C5B3E] text-[#3C5B3E] hover:bg-[#3C5B3E]/10 disabled:opacity-60 disabled:pointer-events-none",
+    "bg-transparent border border-verde-pinho text-verde-pinho hover:bg-verde-pinho/10 disabled:opacity-60 disabled:pointer-events-none",
 };
 
 const sizeStyles = {
@@ -55,7 +55,7 @@ const Button = forwardRef(function Button(
     <Comp
       ref={ref}
       className={clsx(
-        "inline-flex items-center justify-center font-semibold transition-all duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-[#3C5B3E]/40",
+        "inline-flex items-center justify-center font-semibold transition-all duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-verde-pinho/40",
         variantStyles[variant],
         sizeStyles[size],
         isLink && (disabled || loading) && "opacity-60 pointer-events-none",
