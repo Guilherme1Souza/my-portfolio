@@ -36,7 +36,7 @@ export default function Contact() {
 
             <p className="text-text leading-[1.8] max-w-[520px] text-[clamp(14px,1.1vw,17px)] mb-8">
               Estou aberto a oportunidades e projetos como Desenvolvedor
-              Front-end. Use o formulário ou, se preferir, o e-mail direto.
+              Front-end. Use o formulário.
             </p>
           </div>
 
