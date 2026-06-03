@@ -12,7 +12,7 @@ export const testimonials = [
     id: "depoimento-1",
     quote:
       "Profissional dedicado e atento aos detalhes. Entregou as interfaces com qualidade, sempre preocupado com performance e experiência do usuário.",
-    name: "Nome Sobrenome",
+    name: "Kleber Gomide",
     role: "Tech Lead",
     company: "Empresa",
     avatar: null,
