@@ -1,11 +1,12 @@
 import { socials } from "@/data/contact";
+import Container from "@/components/UI/Container/Container";
 
 export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
     <footer className="w-full bg-verde-escuro text-white/70">
-      <div className="w-[90%] max-w-[1440px] mx-auto py-10 flex flex-col sm:flex-row items-center justify-between gap-6">
+      <Container className="py-10 flex flex-col sm:flex-row items-center justify-between gap-6">
         <div className="text-center sm:text-left">
           <p className="text-white font-bold tracking-wide">Guilherme Souza</p>
           <p className="text-white/50 text-sm">Desenvolvedor Front-end</p>
@@ -28,14 +29,14 @@ export default function Footer() {
             );
           })}
         </div>
-      </div>
+      </Container>
 
       <div className="border-t border-white/10">
-        <div className="w-[90%] max-w-[1440px] mx-auto py-5 text-center sm:text-left">
+        <Container className="py-5 text-center sm:text-left">
           <p className="text-white/40 text-xs tracking-wide">
             © {year} Guilherme Souza. Todos os direitos reservados.
           </p>
-        </div>
+        </Container>
       </div>
     </footer>
   );

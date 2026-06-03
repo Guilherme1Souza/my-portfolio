@@ -1,4 +1,5 @@
 import { projects } from "@/data/projects";
+import Container from "@/components/UI/Container/Container";
 import ProjectCard from "./ProjectCard";
 
 export default function Projects() {
@@ -7,7 +8,7 @@ export default function Projects() {
       id="projects"
       className="relative w-full bg-branco scroll-mt-24 py-24 lg:py-32"
     >
-      <div className="w-[90%] max-w-[1440px] mx-auto">
+      <Container>
         {/* Cabeçalho (mesmo padrão da seção About) */}
         <header className="mb-16 lg:mb-24">
           <p className="font-bold tracking-[0.2em] uppercase text-verde text-[11px] mb-3">
@@ -25,7 +26,7 @@ export default function Projects() {
             <ProjectCard key={project.id} project={project} index={index} />
           ))}
         </div>
-      </div>
+      </Container>
     </section>
   );
 }

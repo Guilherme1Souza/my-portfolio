@@ -2,6 +2,7 @@
 
 import React, { useMemo, useState } from "react";
 import { ArrowDownTrayIcon } from "@heroicons/react/24/outline";
+import Container from "@/components/UI/Container/Container";
 
 const LINKS = [
   {
@@ -98,7 +99,7 @@ export default function NavBar() {
     fixed top-0 left-0 w-full z-[900] bg-verde
   "
       >
-        <div className="w-[95%] max-w-[1440px] mx-auto py-5">
+        <Container className="py-5">
           <div className="flex items-center justify-between">
             <a
               href="#"
@@ -139,7 +140,7 @@ export default function NavBar() {
               />
             </button>
           </div>
-        </div>
+        </Container>
       </nav>
 
       <div
@@ -176,7 +177,7 @@ export default function NavBar() {
             "transition-transform duration-300 ease-out delay-[140ms]",
           ].join(" ")}
         >
-          <div className="w-[95%] max-w-[1440px] mx-auto h-full py-5">
+          <Container className="h-full py-5">
             <div className="flex flex-row-reverse justify-between items-start h-full">
               <button
                 type="button"
@@ -259,7 +260,7 @@ export default function NavBar() {
                 ))}
               </ul>
             </div>
-          </div>
+          </Container>
         </div>
       </div>
     </>
