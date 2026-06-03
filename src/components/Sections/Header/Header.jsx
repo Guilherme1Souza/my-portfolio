@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 import Image from "next/image";
 import bgHeader from "@/images/header.png";
-import MainLayout from "../../Layout/MainLayout/MainLayout";
+import Container from "@/components/UI/Container/Container";
 
 const ICONS = [
   { key: "github", Icon: FaGithub, href: "https://github.com/Guilherme1Souza" },
@@ -51,10 +51,9 @@ export default function Header() {
   const STEP = 60;
 
   return (
-    <MainLayout>
       <section id="home">
       <header className="w-full min-h-screen">
-        <div className="w-full max-w-[1440px] mx-auto min-h-screen pt-6 sm:pt-10 md:pt-14">
+        <Container className="min-h-screen pt-6 sm:pt-10 md:pt-14 flex flex-col">
           <div className="grid mt-22 min-h-[calc(100vh-2.5rem)] grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10 md:gap-14 items-center ">
             <div className="order-1 md:order-2 w-full flex justify-center md:justify-end">
               <div
@@ -154,9 +153,8 @@ export default function Header() {
               </div>
             </div>
           </div>
-        </div>
+        </Container>
       </header>
       </section>
-    </MainLayout>
   );
 }
