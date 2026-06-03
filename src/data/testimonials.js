@@ -7,6 +7,18 @@
 //
 // Enquanto `avatar` for null, mostramos um círculo com as iniciais do nome.
 
+/**
+ * @typedef {Object} Testimonial
+ * @property {string} id Identificador único (usado como key React).
+ * @property {string} quote Texto do depoimento.
+ * @property {string} name Nome de quem deu o depoimento.
+ * @property {string} role Cargo.
+ * @property {string} [company] Empresa (opcional).
+ * @property {import("next/image").StaticImageData | null} avatar Foto importada, ou null para iniciais.
+ * @property {string} [imageAlt] Texto alternativo do avatar (opcional).
+ */
+
+/** @type {Testimonial[]} */
 export const testimonials = [
   {
     id: "depoimento-1",

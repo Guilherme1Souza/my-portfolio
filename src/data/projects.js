@@ -7,6 +7,18 @@
 //
 // Enquanto `image` for null, o ProjectCard mostra um placeholder estilizado.
 
+/**
+ * @typedef {Object} Project
+ * @property {string} id Identificador único (usado como key React).
+ * @property {string} title Nome do projeto.
+ * @property {string} description Descrição curta do projeto.
+ * @property {string[]} stack Tecnologias usadas.
+ * @property {string} liveUrl URL do projeto no ar.
+ * @property {import("next/image").StaticImageData | null} image Screenshot importado, ou null para placeholder.
+ * @property {string} imageAlt Texto alternativo da imagem.
+ */
+
+/** @type {Project[]} */
 export const projects = [
   {
     id: "projeto-1",
